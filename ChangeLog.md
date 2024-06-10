@@ -6,7 +6,7 @@
 
     Release date: 
 
-    - 
+    - Remove useless files from client import
 
 ### 1.0.0
 
