@@ -8,11 +8,11 @@ import _ from 'lodash';
 const assert = require( 'assert' ).strict; // up to nodejs v16.x
 import mix from '@vestergaard-company/js-mixin';
 
-import { OrderableStack } from 'meteor/pwix:orderable-stack';
+import { OrdStack } from 'meteor/pwix:orderable-stack';
 
 import { ITypedMessage } from '../interfaces/ityped-message.iface.js';
 
-export class TypedMessage  extends  mix( OrderableStack.Orderable ).with( ITypedMessage ){
+export class TypedMessage  extends  mix( OrdStack.Orderable ).with( ITypedMessage ){
 
     // static data
 

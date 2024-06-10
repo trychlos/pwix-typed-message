@@ -4,9 +4,9 @@
  * A class derived from the OrderableStack base class.
  */
 
-import { OrderableStack } from 'meteor/pwix:orderable-stack';
+import { OrdStack } from 'meteor/pwix:orderable-stack';
 
-export class MessagesSet extends OrderableStack.OrderableStack {
+export class MessagesSet extends OrdStack.OrderableStack {
 
     // static data
 
