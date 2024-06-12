@@ -2,9 +2,9 @@
 
 ## ChangeLog
 
-### 1.1.0-rc
+### 1.1.0
 
-    Release date:
+    Release date: 2024- 6-12
 
     - Remove useless files from client import
     - Define the IOrderableCompare() function
@@ -18,4 +18,4 @@ Release date:
 
 ---
 P. Wieser
-- Last updated on 2024, Jun. 10th
+- Last updated on 2024, Jun. 12th
