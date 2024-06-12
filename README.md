@@ -54,9 +54,15 @@ Returns the i18n namespace used by the package. Used to add translations at runt
 
 Display the topmost in semantic order of the pushed `TypedMessage`'s.
 
+Accepts a data context as:
+
+- `orderableStack`: an object compliant with `OrderableStack.IOrderableStack` interface
+
+- `classes`: a list of classes as a String, to be added whatever be the displayed message, defaulting to nothing.
+
 ## NPM peer dependencies
 
-Starting with v 0.3.0, and in accordance with advices from [the Meteor Guide](https://guide.meteor.com/writing-atmosphere-packages.html#peer-npm-dependencies), we no more hardcode NPM dependencies in the `Npm.depends` clause of the `package.js`. 
+Starting with v 0.3.0, and in accordance with advices from [the Meteor Guide](https://guide.meteor.com/writing-atmosphere-packages.html#peer-npm-dependencies), we no more hardcode NPM dependencies in the `Npm.depends` clause of the `package.js`.
 
 Instead we check npm versions of installed packages at runtime, on server startup, in development environment.
 
