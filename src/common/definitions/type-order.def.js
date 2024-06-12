@@ -27,5 +27,29 @@ export const TypeOrder = {
      */
     Knowns(){
         return this.K;
+    },
+
+    /**
+     * @param {String} a a message type
+     * @param {String} b another message type
+     * @returns {Integer} -1 if a < b, +1 if a > b, 0 else
+     */
+    compare( a, b ){
+        const idx_a = this.index( a );
+        const idx_b = this.index( b);
+        return idx_a < idx_b ? -1 : ( idx_a > idx_b ? +1 : 0 );
+    },
+
+    /**
+     * @param {String} type a message type
+     * @returns {Integer} the index of the message type in the order array
+     */
+    index( type ){
+        for( let i=0; i<TypeOrder.K.length ; ++i ){
+            if( TypeOrder.K[i] === type ){
+                return i;
+            }
+        }
+        assert( false, 'message type "'+type+'" is unknowned' );
     }
 };

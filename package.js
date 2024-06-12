@@ -33,11 +33,7 @@ function configure( api ){
     _use( 'ecmascript' );
     _use( 'less@4.0.0', 'client' );
     _use( 'pwix:orderable-stack@1.0.1' );
-    _use( 'pwix:ui-bootstrap5@2.0.0' );
-    _use( 'reactive-dict' );
-    _use( 'reactive-var' );
     _use( 'tmeasday:check-npm-versions@1.0.2 || 2.0.0-beta.0', 'server' );
-    //_use( 'tracker', 'client' );
     api.addFiles( 'src/client/components/TypedMessage/TypedMessage.js', 'client' );
 }
 

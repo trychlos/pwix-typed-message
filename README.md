@@ -2,13 +2,107 @@
 
 ## What is it ?
 
-This Meteor packages provides both:
+This Meteor packages aims to provide a way of managing error messages, so that the errors be displayed all before any warnings, themselves being all displayed before any information.
 
-- a `ITypedMessage` interface definition, which let us type our message in a syslog-way...
+It makes use, and exports, several classes to manage:
 
-- a `TypedMessage` class definition, derived from `Orderable`, which implements the `ITypedMessage` interface
+- a typed message, where the type is error, warning, etc., mostly like syslog(3) levels
 
-- a Blaze component which let us use a set of `TypedMessage`'s to display a stack error messages in their gravity order.
+- an ordered set of typed messages, suitable to be used in an application
+
+and also provides ad-hoc Blaze component.
+
+## Installation
+
+This Meteor package is installable with the usual command:
+
+```
+    meteor add pwix:typed-message
+```
+
+## Usage
+
+```
+    import { TM } from 'meteor/pwix:typed-message';
+```
+
+## Provides
+
+### `TM`
+
+The exported `TM` global object provides following items:
+
+#### Functions
+
+##### `TM.configure()`
+
+See [below](#configuration).
+
+##### `TM.i18n.namespace()`
+
+Returns the i18n namespace used by the package. Used to add translations at runtime.
+
+#### Interfaces
+
+##### `TM.ITypedMessage`
+
+This interface adds to the implementor the notion of which emitter, for which type (aka level), and which message. It provides the following getters:
+
+- `TM.ITypedMessage.ITypedMessageEmitter()`
+- `TM.ITypedMessage.ITypedMessageMessage()`
+- `TM.ITypedMessage.ITypedMessageType()`
+
+#### Classes
+
+##### `TM.MessagesSet`
+
+A class, derived from `OStack.OrderableStack`, which aims to manage below `TM.TypedMessage`s instances.
+
+##### `TM.TypedMessage`
+
+A class, derived from `OStack.Orderable`, which also implements the `TM.ITypedMessage` interface.
+
+#### Definitions
+
+##### `TM.MessageType`
+
+The list of known message types, in alpha order:
+
+- `TM.MessageType.C.ALERT`
+- `TM.MessageType.C.CRIT`
+- `TM.MessageType.C.DEBUG`
+- `TM.MessageType.C.EMERG`
+- `TM.MessageType.C.ERR`
+- `TM.MessageType.C.ERROR`
+- `TM.MessageType.C.INFO`
+- `TM.MessageType.C.LOG`
+- `TM.MessageType.C.NOTICE`
+- `TM.MessageType.C.WARNING`
+
+##### `TM.TypeOrder`
+
+The ordering of the types:
+
+- `TM.MessageType.C.EMERG`
+- `TM.MessageType.C.ALERT`
+- `TM.MessageType.C.CRIT`
+- `TM.MessageType.C.ERR`
+- `TM.MessageType.C.WARNING`
+- `TM.MessageType.C.NOTICE`
+- `TM.MessageType.C.INFO`
+- `TM.MessageType.C.DEBUG`
+
+### Blaze components
+
+#### `TypedMessage`
+
+Display the topmost in semantic order of the pushed `TypedMessage`'s.
+
+Accepts a data context as:
+
+- `orderable`: an instance of an object compliant with `OStack.IOrderableStack` interface (for example, an instance of `TM.MessagesSet` class).
+
+- `classes`: a list of classes as a String, to be added whatever be the displayed message, defaulting to nothing.
 
 ## Configuration
 
@@ -33,32 +127,6 @@ Known configuration options are:
 Please note that `TM.configure()` method should be called in the same terms both in client and server sides.
 
 Remind too that Meteor packages are instanciated at application level. They are so only configurable once, or, in other words, only one instance has to be or can be configured. Addtionnal calls to `TM.configure()` will just override the previous one. You have been warned: **only the application should configure a package**.
-
-## Provides
-
-`TM` provides following items:
-
-### Methods
-
-#### `TM.configure()`
-
-See above.
-
-#### `TM.i18n.namespace()`
-
-Returns the i18n namespace used by the package. Used to add translations at runtime.
-
-### Blaze components
-
-#### `TypedMessage`
-
-Display the topmost in semantic order of the pushed `TypedMessage`'s.
-
-Accepts a data context as:
-
-- `orderableStack`: an object compliant with `OrderableStack.IOrderableStack` interface
-
-- `classes`: a list of classes as a String, to be added whatever be the displayed message, defaulting to nothing.
 
 ## NPM peer dependencies
 

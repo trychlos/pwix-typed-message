@@ -1,8 +1,8 @@
 /*
- * /imports/common/interfaces/ityped-message.iface.js
+ * pwix:typed-message/src/common/interfaces/ityped-message.iface.js
  *
  * The ITypedMessage interface provides methods to have a typed message, suitable for example for logs and error messages in a UI.
- * 
+ *
  * Partially based on:
  * - https://datatracker.ietf.org/doc/html/rfc5424 Syslog protocol
  * - man 3 syslog

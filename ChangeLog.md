@@ -4,13 +4,15 @@
 
 ### 1.0.1-rc
 
-    Release date: 
+    Release date:
 
     - Remove useless files from client import
+    - Define the IOrderableCompare() function
+    - Use OStack global export
 
 ### 1.0.0
 
-Release date: 
+Release date:
 
 - Initial release
 

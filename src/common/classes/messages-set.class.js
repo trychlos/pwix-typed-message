@@ -1,12 +1,12 @@
 /*
- * /src/common/classes/messages-set.class.js
+ * pwix:typed-message/src/common/classes/messages-set.class.js
  *
  * A class derived from the OrderableStack base class.
  */
 
-import { OrdStack } from 'meteor/pwix:orderable-stack';
+import { OStack } from 'meteor/pwix:orderable-stack';
 
-export class MessagesSet extends OrdStack.OrderableStack {
+export class MessagesSet extends OStack.OrderableStack {
 
     // static data
 
