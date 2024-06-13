@@ -16,13 +16,13 @@ and also provides ad-hoc Blaze component.
 
 This Meteor package is installable with the usual command:
 
-```
+```sh
     meteor add pwix:typed-message
 ```
 
 ## Usage
 
-```
+```js
     import { TM } from 'meteor/pwix:typed-message';
 ```
 
@@ -152,6 +152,10 @@ New and updated translations are willingly accepted, and more than welcome. Just
 ## Cookies and comparable technologies
 
 None at the moment.
+
+## Issues & help
+
+In case of support or error, please report your issue request to our [issues tracker](https://github.com/trychlos/pwix-typed-message/issues).
 
 ---
 P. Wieser
