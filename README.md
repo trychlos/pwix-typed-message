@@ -48,9 +48,9 @@ Returns the i18n namespace used by the package. Used to add translations at runt
 
 This interface adds to the implementor the notion of which emitter, for which type (aka level), and which message. It provides the following getters:
 
-- `TM.ITypedMessage.ITypedMessageEmitter()`
-- `TM.ITypedMessage.ITypedMessageMessage()`
-- `TM.ITypedMessage.ITypedMessageType()`
+- `TM.ITypedMessage.iTypedMessageEmitter()`
+- `TM.ITypedMessage.iTypedMessageMessage()`
+- `TM.ITypedMessage.iTypedMessageType()`
 
 #### Classes
 

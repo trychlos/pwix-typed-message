@@ -51,21 +51,21 @@ export const ITypedMessage = DeclareMixin(( superclass ) => class extends superc
     /**
      * @returns {String} the emitter
      */
-    ITypedMessageEmitter(){
+    iTypedMessageEmitter(){
         return this.#emitter;
     }
 
     /**
      * @returns {String} the message
      */
-    ITypedMessageMessage(){
+    iTypedMessageMessage(){
         return this.#message;
     }
 
     /**
      * @returns {String} the type
      */
-    ITypedMessageType(){
+    iTypedMessageType(){
         return this.#type;
     }
 });

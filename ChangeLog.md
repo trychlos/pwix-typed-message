@@ -4,9 +4,9 @@
 
 ### 1.1.2-rc
 
-    Release date: 
+    Release date:
 
-    - 
+    - Rename methods to begin with a lowercase
 
 ### 1.1.1
 
