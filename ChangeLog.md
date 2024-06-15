@@ -2,9 +2,9 @@
 
 ## ChangeLog
 
-### 1.1.2-rc
+### 1.1.2
 
-    Release date:
+    Release date: 2024- 6-15
 
     - Rename methods to begin with a lowercase
 
@@ -30,4 +30,4 @@ Release date:
 
 ---
 P. Wieser
-- Last updated on 2024, Jun. 13th
+- Last updated on 2024, Jun. 15th
