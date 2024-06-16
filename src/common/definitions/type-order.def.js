@@ -42,12 +42,16 @@ export const TypeOrder = {
 
     /**
      * @param {String} type a message type
-     * @returns {Integer} the index of the message type in the order array
+     * @returns {Integer} the index of the message type (or of one of its synonyms)  in the order array
      */
     index( type ){
-        for( let i=0; i<TypeOrder.K.length ; ++i ){
-            if( TypeOrder.K[i] === type ){
-                return i;
+        const synonyms = MessageType.synonyms( type );
+        for( let s=0 ; s<synonyms.length ; ++s ){
+            const syn = synonyms[s];
+            for( let i=0; i<TypeOrder.K.length ; ++i ){
+                if( TypeOrder.K[i] === syn ){
+                    return i;
+                }
             }
         }
         assert( false, 'message type "'+type+'" is unknowned' );

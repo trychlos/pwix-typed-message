@@ -7,6 +7,7 @@
     Release date:
 
     - Fix calls to IOrderableStack interface
+    - Manage aliases (aka synonyms) when comparing messages types (todo #1)
 
 ### 1.1.2
 

@@ -19,6 +19,7 @@ export const MessageType = {
         WARNING: 'WARNING'
     }
 };
+// to prevent ReferenceError: Cannot access 'MessageType' before initialization
 _.merge( MessageType, {
     K: [
         {
@@ -104,18 +105,19 @@ _.merge( MessageType, {
 
     /**
      * @param {String} id the identifier of the type
-     * @returns {Array<String>} the list of synonyms for this one
+     * @returns {Array<String>} the list of synonyms for this one, including itself
      */
     synonyms( id ){
         let array = {};
         array[id] = true;
         const self = this;
-        this.Knowns().every(( def ) => {
+        this.Knowns().forEach(( def ) => {
             const def_id = self.id( def );
-            if( def_id !== id && self.synonym( def ) === id ){
+            const def_synonym = self.synonym( def );
+            if( def_id === id || def_synonym === id ){
                 array[def_id] = true;
+                array[def_synonym] = true;
             }
-            return true;
         });
         return Object.keys( array );
     }
