@@ -92,6 +92,15 @@ The ordering of the types:
 - `TM.MessageType.C.INFO`
 - `TM.MessageType.C.DEBUG`
 
+This is the usual used semantic where 'EMERG' is greater (has a higher priority level) than 'DEBUG'.
+
+Example:
+
+```
+    console.debug( iOrderableCompare( TM.MessageType.C.CRIT, TM.MessageType.C.INFO ));
+    // 1
+```
+
 ### Blaze components
 
 #### `TypedMessage`

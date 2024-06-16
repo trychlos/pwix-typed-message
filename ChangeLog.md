@@ -8,6 +8,7 @@
 
     - Fix calls to IOrderableStack interface
     - Manage aliases (aka synonyms) when comparing messages types (todo #1)
+    - Compare in index reverse order to keep usual level semantic
 
 ### 1.1.2
 

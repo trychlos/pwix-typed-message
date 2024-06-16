@@ -36,11 +36,13 @@ export class TypedMessage  extends  mix( OStack.Orderable ).with( ITypedMessage 
     }
 
     // the method each IOrderable implementation must provide
+    // here we keep the usual semantic where 'EMERGENCY' is greater (has a higher priority level) than 'DEBUG'
+    //  so sort the levels in the reverse order of their index
     iOrderableCompare( a, b ){
         assert( a instanceof ITypedMessage, 'expected an ITypedMessage instance' );
         assert( b instanceof ITypedMessage, 'expected an ITypedMessage instance' );
         const level_a = a.ITypedMessageType();
         const level_b = b.ITypedMessageType();
-        return TypeOrder.compare( level_a, level_b );
+        return -1 * TypeOrder.compare( level_a, level_b );
     }
 }
