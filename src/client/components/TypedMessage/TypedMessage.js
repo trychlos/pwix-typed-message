@@ -37,13 +37,13 @@ Template.TypedMessage.helpers({
     //  because we do not want have several lines, or bold, or any other singularities here
     //  nevertheless the Blaze tempate itself is HTML-capable to be able to handle the '&nbsp;' character
     errorLabel(){
-        const o = this.orderable?.IOrderableStackLast();
-        return o ? o.ITypedMessageMessage() : '&nbsp;';
+        const o = this.orderable?.iOrderableStackLast();
+        return o ? o.iTypedMessageMessage() : '&nbsp;';
     },
 
     // the class to be associated to the error message: may be an error, a warning, an info, etc.
     errorType(){
-        const o = this.orderable?.IOrderableStackLast();
-        return o ? o.ITypedMessageType() : '';
+        const o = this.orderable?.iOrderableStackLast();
+        return o ? o.iTypedMessageType() : '';
     }
 });

@@ -10,7 +10,8 @@
 
 |   Id | Date       | Description and comment(s) |
 | ---: | :---       | :---                       |
-|    1 |  |  |
+|    1 | 2024- 6-16 | manage aliases in compare() function |
+|    2 |  |  |
 
 ---
 ## Done

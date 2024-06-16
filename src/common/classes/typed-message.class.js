@@ -36,7 +36,7 @@ export class TypedMessage  extends  mix( OStack.Orderable ).with( ITypedMessage 
     }
 
     // the method each IOrderable implementation must provide
-    IOrderableCompare( a, b ){
+    iOrderableCompare( a, b ){
         assert( a instanceof ITypedMessage, 'expected an ITypedMessage instance' );
         assert( b instanceof ITypedMessage, 'expected an ITypedMessage instance' );
         const level_a = a.ITypedMessageType();

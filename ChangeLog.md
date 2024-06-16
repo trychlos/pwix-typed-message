@@ -4,9 +4,9 @@
 
 ### 1.1.3-rc
 
-    Release date: 
+    Release date:
 
-    - 
+    - Fix calls to IOrderableStack interface
 
 ### 1.1.2
 
