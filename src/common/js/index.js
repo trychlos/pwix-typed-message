@@ -10,7 +10,6 @@ import { LevelOrder } from '../definitions/level-order.def';
 import { ITypedMessage } from '../interfaces/ityped-message.iface';
 
 // classes
-import { MessagesSet } from '../classes/messages-set.class';
 import { TypedMessage } from '../classes/typed-message.class';
 
 import './global.js';
@@ -23,5 +22,4 @@ TM.LevelOrder = LevelOrder;
 
 TM.ITypedMessage = ITypedMessage;
 
-TM.MessagesSet = MessagesSet;
 TM.TypedMessage = TypedMessage;

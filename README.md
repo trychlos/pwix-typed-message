@@ -48,10 +48,6 @@ This interface adds to the implementor the notion of which emitter, for which le
 
 #### Classes
 
-##### `TM.MessagesSet`
-
-A class, derived from `OStack.OrderableStack`, which aims to manage below `TM.TypedMessage`s instances.
-
 ##### `TM.TypedMessage`
 
 A class, derived from `OStack.Orderable`, which also implements the `TM.ITypedMessage` interface.
