@@ -110,18 +110,6 @@ Example:
     // 1
 ```
 
-### Blaze components
-
-#### `TypedMessage`
-
-Display the topmost in semantic order of the pushed `TypedMessage`'s.
-
-Accepts a data context as:
-
-- `orderable`: an instance of an object compliant with `OStack.IOrderableStack` interface (for example, an instance of `TM.MessagesSet` class).
-
-- `classes`: a list of classes as a String, to be added whatever be the displayed message, defaulting to nothing.
-
 ## Configuration
 
 The package's behavior can be configured through a call to the `TM.configure()` method, with just a single javascript object argument, which itself should only contains the options you want override.

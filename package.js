@@ -29,11 +29,8 @@ function configure( api ){
     };
     api.versionsFrom([ '2.9.0', '3.0-rc.0' ]);
     _use( 'check' );
-    _use( 'blaze-html-templates@2.0.0 || 3.0.0-alpha300.0', 'client' );
     _use( 'ecmascript' );
-    _use( 'less@4.0.0', 'client' );
     _use( 'tmeasday:check-npm-versions@1.0.2 || 2.0.0-beta.0', 'server' );
-    api.addFiles( 'src/client/components/TypedMessage/TypedMessage.js', 'client' );
 }
 
 // NPM dependencies are checked in /src/server/js/check_npms.js
