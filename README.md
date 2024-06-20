@@ -42,15 +42,34 @@ See [below](#configuration).
 
 This interface adds to the implementor the notion of which emitter, for which level, and which message. It provides the following getters:
 
+- `TM.ITypedMessage.iTypedMessageCompare( a<ITypedMessage>, b<ITypedMessage>)`
+
+    A comparison function between two `ITypedMessage`'s, which itself relies on `LevelOrder.compare()`.
+
 - `TM.ITypedMessage.iTypedMessageEmitter()`
 - `TM.ITypedMessage.iTypedMessageLevel()`
 - `TM.ITypedMessage.iTypedMessageMessage()`
+
+    Getters for the corresponding data.
 
 #### Classes
 
 ##### `TM.TypedMessage`
 
-A class, derived from `OStack.Orderable`, which also implements the `TM.ITypedMessage` interface.
+A simple class which implements the `TM.ITypedMessage` interface.
+
+The constructor take arguments as:
+
+- either a single string, which acts as the `message`, and
+
+    - `emitter` is set to `null`
+    - `level` is set to `TM.MessageLevel.C.LOG`
+
+- or an object with following keys:
+
+    - `emitter`
+    - `level`
+    - `message`
 
 #### Definitions
 
@@ -86,8 +105,8 @@ This is the usual used semantic where 'EMERG' is greater (has a higher priority 
 
 Example:
 
-```
-    console.debug( iOrderableCompare( TM.MessageLevel.C.CRIT, TM.MessageLevel.C.INFO ));
+```js
+    console.debug( TM.LevelOrder.compare( TM.MessageLevel.C.CRIT, TM.MessageLevel.C.INFO ));
     // 1
 ```
 

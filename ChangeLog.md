@@ -10,6 +10,7 @@
     - Remove (unused) internationalization
     - iTypedMessageType() method is renamed iTypedMessageLevel()
     - Remove MessagesSet class from the package
+    - Get rid of pwix:orderable-stack dependency
 
 ### 1.1.3
 

@@ -13,6 +13,7 @@ const assert = require( 'assert' ).strict;
 import { DeclareMixin } from '@vestergaard-company/js-mixin';
 
 import { MessageLevel } from '../definitions/message-level.def.js';
+import { LevelOrder } from '../definitions/level-order.def.js';
 
 export const ITypedMessage = DeclareMixin(( superclass ) => class extends superclass {
 
@@ -28,7 +29,7 @@ export const ITypedMessage = DeclareMixin(( superclass ) => class extends superc
      *  - emitter {String} the emitter, defaulting to null
      *  - level {String} a key from MessageLevel.C, defaulting to MessageLevel.C.LOG
      *  - message {String} the message itself (mandatory)
-     * @returns {ITypedMessage}
+     * @returns {ITypedMessage} this instance
      */
     constructor( args ){
         super( ...arguments );
@@ -46,6 +47,25 @@ export const ITypedMessage = DeclareMixin(( superclass ) => class extends superc
         this.#message = _.isString( args ) ? args : args.message;
 
         return this;
+    }
+
+    /**
+     *
+     * @param {ITypedMessage} a
+     * @param {ITypedMessage} b
+     * @returns -1 if a has a lower priority level than b
+     *           0 if a and b have the same priority level
+     *          +1 if a has a greater priority level than b
+     * Note:
+     *  We keep the usual semantic where 'EMERGENCY' is greater (has a higher priority level) than 'DEBUG'
+     *  so sort the levels in the reverse order of their index
+     */
+    iTypedMessageCompare( a, b ){
+        assert( a instanceof ITypedMessage, 'expected an ITypedMessage instance' );
+        assert( b instanceof ITypedMessage, 'expected an ITypedMessage instance' );
+        const level_a = a.iTypedMessageLevel();
+        const level_b = b.iTypedMessageLevel();
+        return -1 * LevelOrder.compare( level_a, level_b );
     }
 
     /**
