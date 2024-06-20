@@ -156,7 +156,7 @@ Each of these dependencies should be installed at application level:
 
 ## Translations
 
-New and updated translations are willingly accepted, and more than welcome. Just be kind enough to submit a PR on the [Github repository](https://github.com/trychlos/pwix-typed-message/pulls).
+None at the moment.
 
 ## Cookies and comparable technologies
 

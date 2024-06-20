@@ -7,6 +7,7 @@
     Release date:
 
     - Taxonomy change: the 'type' becomes a 'level' to be consistent with syslog(3)
+    - Remove (unused) internationalization
 
 ### 1.1.3
 
