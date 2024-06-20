@@ -2,15 +2,7 @@
 
 ## What is it ?
 
-This Meteor packages aims to provide a way of managing error messages, so that the errors be displayed all before any warnings, themselves being all displayed before any information.
-
-It makes use, and exports, several classes to manage:
-
-- a typed message, where the type is error, warning, etc., mostly like syslog(3) levels
-
-- an ordered set of typed messages, suitable to be used in an application
-
-and also provides ad-hoc Blaze component.
+A simple extendable class to manage messages with a priority level, mostly like syslog(3).
 
 ## Installation
 
@@ -24,6 +16,12 @@ This Meteor package is installable with the usual command:
 
 ```js
     import { TM } from 'meteor/pwix:typed-message';
+
+    const tm = new TM.TypedMessage({
+        emitter: 'mySelf',
+        level: TM.MessageLevel.C.NOTICE,
+        message: 'My log message'
+    });
 ```
 
 ## Provides
@@ -38,19 +36,15 @@ The exported `TM` global object provides following items:
 
 See [below](#configuration).
 
-##### `TM.i18n.namespace()`
-
-Returns the i18n namespace used by the package. Used to add translations at runtime.
-
 #### Interfaces
 
 ##### `TM.ITypedMessage`
 
-This interface adds to the implementor the notion of which emitter, for which type (aka level), and which message. It provides the following getters:
+This interface adds to the implementor the notion of which emitter, for which level, and which message. It provides the following getters:
 
 - `TM.ITypedMessage.iTypedMessageEmitter()`
+- `TM.ITypedMessage.iTypedMessageLevel()`
 - `TM.ITypedMessage.iTypedMessageMessage()`
-- `TM.ITypedMessage.iTypedMessageType()`
 
 #### Classes
 
@@ -66,22 +60,22 @@ A class, derived from `OStack.Orderable`, which also implements the `TM.ITypedMe
 
 ##### `TM.MessageLevel`
 
-The list of known message types, in alpha order:
+The list of known message levels, in alpha order:
 
 - `TM.MessageLevel.C.ALERT`
 - `TM.MessageLevel.C.CRIT`
 - `TM.MessageLevel.C.DEBUG`
 - `TM.MessageLevel.C.EMERG`
 - `TM.MessageLevel.C.ERR`
-- `TM.MessageLevel.C.ERROR`
+- `TM.MessageLevel.C.ERROR`, an alias for `TM.MessageLevel.C.ERR`
 - `TM.MessageLevel.C.INFO`
-- `TM.MessageLevel.C.LOG`
+- `TM.MessageLevel.C.LOG`, an alias for `TM.MessageLevel.C.INFO`
 - `TM.MessageLevel.C.NOTICE`
 - `TM.MessageLevel.C.WARNING`
 
 ##### `TM.LevelOrder`
 
-The ordering of the types:
+The ordering of the levels:
 
 - `TM.MessageLevel.C.EMERG`
 - `TM.MessageLevel.C.ALERT`

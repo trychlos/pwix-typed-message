@@ -8,6 +8,7 @@
 
     - Taxonomy change: the 'type' becomes a 'level' to be consistent with syslog(3)
     - Remove (unused) internationalization
+    - iTypedMessageType() method is renamed iTypedMessageLevel()
 
 ### 1.1.3
 

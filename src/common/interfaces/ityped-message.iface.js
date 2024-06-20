@@ -19,14 +19,14 @@ export const ITypedMessage = DeclareMixin(( superclass ) => class extends superc
     // private data
 
     #emitter = null;
-    #type = null;
+    #level = null;
     #message = null;
 
     /**
      * @summary Constructor
      * @param {Object|String} args either a message string or an object with following keys:
      *  - emitter {String} the emitter, defaulting to null
-     *  - type {String} a key from MessageLevel.C, defaulting to MessageLevel.C.LOG
+     *  - level {String} a key from MessageLevel.C, defaulting to MessageLevel.C.LOG
      *  - message {String} the message itself (mandatory)
      * @returns {ITypedMessage}
      */
@@ -42,7 +42,7 @@ export const ITypedMessage = DeclareMixin(( superclass ) => class extends superc
         }
 
         this.#emitter = args.emitter || null;
-        this.#type = args.type || MessageLevel.C.LOG;
+        this.#level = args.level || MessageLevel.C.LOG;
         this.#message = _.isString( args ) ? args : args.message;
 
         return this;
@@ -56,16 +56,16 @@ export const ITypedMessage = DeclareMixin(( superclass ) => class extends superc
     }
 
     /**
+     * @returns {String} the type
+     */
+    iTypedMessageLevel(){
+        return this.#level;
+    }
+
+    /**
      * @returns {String} the message
      */
     iTypedMessageMessage(){
         return this.#message;
-    }
-
-    /**
-     * @returns {String} the type
-     */
-    iTypedMessageType(){
-        return this.#type;
     }
 });
