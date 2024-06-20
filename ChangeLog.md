@@ -2,9 +2,9 @@
 
 ## ChangeLog
 
-### 1.1.3-rc
+### 1.1.3
 
-    Release date:
+    Release date: 2024- 6-20
 
     - Fix calls to IOrderableStack interface
     - Manage aliases (aka synonyms) when comparing messages types (todo #1)
@@ -38,4 +38,4 @@ Release date:
 
 ---
 P. Wieser
-- Last updated on 2024, Jun. 15th
+- Last updated on 2024, Jun. 20th

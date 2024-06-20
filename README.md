@@ -168,4 +168,4 @@ In case of support or error, please report your issue request to our [issues tra
 
 ---
 P. Wieser
-- Last updated on 2024, Jun. 15th
+- Last updated on 2024, Jun. 20th
