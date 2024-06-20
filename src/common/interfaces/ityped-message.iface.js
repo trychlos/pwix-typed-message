@@ -12,7 +12,7 @@ import _ from 'lodash';
 const assert = require( 'assert' ).strict;
 import { DeclareMixin } from '@vestergaard-company/js-mixin';
 
-import { MessageType } from '../definitions/message-type.def.js';
+import { MessageLevel } from '../definitions/message-level.def.js';
 
 export const ITypedMessage = DeclareMixin(( superclass ) => class extends superclass {
 
@@ -26,7 +26,7 @@ export const ITypedMessage = DeclareMixin(( superclass ) => class extends superc
      * @summary Constructor
      * @param {Object|String} args either a message string or an object with following keys:
      *  - emitter {String} the emitter, defaulting to null
-     *  - type {String} a key from MessageType.C, defaulting to MessageType.C.LOG
+     *  - type {String} a key from MessageLevel.C, defaulting to MessageLevel.C.LOG
      *  - message {String} the message itself (mandatory)
      * @returns {ITypedMessage}
      */
@@ -35,14 +35,14 @@ export const ITypedMessage = DeclareMixin(( superclass ) => class extends superc
 
         assert( args, 'arguments must be set' );
         if( _.isObject( args )){
-            assert( !args.type || Object.keys( MessageType.C ).includes( args.type ), 'type is invalid' );
+            assert( !args.type || Object.keys( MessageLevel.C ).includes( args.type ), 'type is invalid' );
             assert( args.message && _.isString( args.message ) && args.message.length, 'message must be a non-empty string' );
         } else {
             assert( _.isString( args ) && args.length, 'if not an object, argument must be a non-empty string' );
         }
 
         this.#emitter = args.emitter || null;
-        this.#type = args.type || MessageType.C.LOG;
+        this.#type = args.type || MessageLevel.C.LOG;
         this.#message = _.isString( args ) ? args : args.message;
 
         return this;

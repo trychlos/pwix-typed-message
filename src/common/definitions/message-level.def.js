@@ -1,11 +1,11 @@
 /*
- * pwix:typed-message/src/common/definitions/message-type.def.js
+ * pwix:typed-message/src/common/definitions/message-level.def.js
  */
 
 import _ from 'lodash';
 const assert = require( 'assert' ).strict;
 
-export const MessageType = {
+export const MessageLevel = {
     C: {
         ALERT: 'ALERT',
         CRIT: 'CRIT',
@@ -19,47 +19,47 @@ export const MessageType = {
         WARNING: 'WARNING'
     }
 };
-// to prevent ReferenceError: Cannot access 'MessageType' before initialization
-_.merge( MessageType, {
+// to prevent ReferenceError: Cannot access 'MessageLevel' before initialization
+_.merge( MessageLevel, {
     K: [
         {
-            id: MessageType.C.ALERT
+            id: MessageLevel.C.ALERT
         },
         {
-            id: MessageType.C.CRIT
+            id: MessageLevel.C.CRIT
         },
         {
-            id: MessageType.C.DEBUG
+            id: MessageLevel.C.DEBUG
         },
         {
-            id: MessageType.C.EMERG
+            id: MessageLevel.C.EMERG
         },
         {
-            id: MessageType.C.ERR
+            id: MessageLevel.C.ERR
         },
         {
-            id: MessageType.C.ERROR,  // not described in man 3 syslog, but used here as a synonym for ERR
-            synonym: MessageType.C.ERR
+            id: MessageLevel.C.ERROR,  // not described in man 3 syslog, but used here as a synonym for ERR
+            synonym: MessageLevel.C.ERR
         },
         {
-            id: MessageType.C.INFO
+            id: MessageLevel.C.INFO
         },
         {
-            id: MessageType.C.LOG,    // not described in man 3 syslog, but used here as a default value and a synonym for INFO
-            synonym: MessageType.C.INFO
+            id: MessageLevel.C.LOG,    // not described in man 3 syslog, but used here as a default value and a synonym for INFO
+            synonym: MessageLevel.C.INFO
         },
         {
-            id: MessageType.C.NOTICE
+            id: MessageLevel.C.NOTICE
         },
         {
-            id: MessageType.C.WARNING
+            id: MessageLevel.C.WARNING
         }
     ],
-    DefaultType: MessageType.C.LOG,
+    DefaultType: MessageLevel.C.LOG,
 
     /**
      * @param {String} id an identifier
-     * @returns {Object} the MessageType definition, or null
+     * @returns {Object} the MessageLevel definition, or null
      */
     byId( id ){
         let found = null;
@@ -81,7 +81,7 @@ _.merge( MessageType, {
     },
 
     /**
-     * @param {Object} def a MessageType definition as returned by MessageType.Knowns()
+     * @param {Object} def a MessageLevel definition as returned by MessageLevel.Knowns()
      * @returns {String} the identifier
      */
     id( def ){
@@ -89,14 +89,14 @@ _.merge( MessageType, {
     },
 
     /**
-     * @returns {Array} the list of managed MessageType definitions
+     * @returns {Array} the list of managed MessageLevel definitions
      */
     Knowns(){
         return this.K;
     },
 
     /**
-     * @param {Object} def a MessageType definition as returned by MessageType.Knowns()
+     * @param {Object} def a MessageLevel definition as returned by MessageLevel.Knowns()
      * @returns {String} the standard level this one is synonym of, or this same one
      */
     synonym( def ){

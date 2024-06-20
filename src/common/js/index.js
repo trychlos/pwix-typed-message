@@ -3,8 +3,8 @@
  */
 
 // definitions
-import { MessageType } from '../definitions/message-type.def';
-import { TypeOrder } from '../definitions/type-order.def';
+import { MessageLevel } from '../definitions/message-level.def';
+import { LevelOrder } from '../definitions/level-order.def';
 
 // interfaces
 import { ITypedMessage } from '../interfaces/ityped-message.iface';
@@ -19,8 +19,8 @@ import './i18n.js';
 //
 import './configure.js';
 
-TM.MessageType = MessageType;
-TM.TypeOrder = TypeOrder;
+TM.MessageLevel = MessageLevel;
+TM.LevelOrder = LevelOrder;
 
 TM.ITypedMessage = ITypedMessage;
 

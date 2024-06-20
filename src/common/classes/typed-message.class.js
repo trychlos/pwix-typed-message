@@ -12,7 +12,7 @@ import { OStack } from 'meteor/pwix:orderable-stack';
 
 import { ITypedMessage } from '../interfaces/ityped-message.iface.js';
 
-import { TypeOrder } from '../definitions/type-order.def.js';
+import { LevelOrder } from '../definitions/level-order.def.js';
 
 export class TypedMessage  extends  mix( OStack.Orderable ).with( ITypedMessage ){
 
@@ -43,6 +43,6 @@ export class TypedMessage  extends  mix( OStack.Orderable ).with( ITypedMessage 
         assert( b instanceof ITypedMessage, 'expected an ITypedMessage instance' );
         const level_a = a.ITypedMessageType();
         const level_b = b.ITypedMessageType();
-        return -1 * TypeOrder.compare( level_a, level_b );
+        return -1 * LevelOrder.compare( level_a, level_b );
     }
 }

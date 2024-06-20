@@ -64,40 +64,40 @@ A class, derived from `OStack.Orderable`, which also implements the `TM.ITypedMe
 
 #### Definitions
 
-##### `TM.MessageType`
+##### `TM.MessageLevel`
 
 The list of known message types, in alpha order:
 
-- `TM.MessageType.C.ALERT`
-- `TM.MessageType.C.CRIT`
-- `TM.MessageType.C.DEBUG`
-- `TM.MessageType.C.EMERG`
-- `TM.MessageType.C.ERR`
-- `TM.MessageType.C.ERROR`
-- `TM.MessageType.C.INFO`
-- `TM.MessageType.C.LOG`
-- `TM.MessageType.C.NOTICE`
-- `TM.MessageType.C.WARNING`
+- `TM.MessageLevel.C.ALERT`
+- `TM.MessageLevel.C.CRIT`
+- `TM.MessageLevel.C.DEBUG`
+- `TM.MessageLevel.C.EMERG`
+- `TM.MessageLevel.C.ERR`
+- `TM.MessageLevel.C.ERROR`
+- `TM.MessageLevel.C.INFO`
+- `TM.MessageLevel.C.LOG`
+- `TM.MessageLevel.C.NOTICE`
+- `TM.MessageLevel.C.WARNING`
 
-##### `TM.TypeOrder`
+##### `TM.LevelOrder`
 
 The ordering of the types:
 
-- `TM.MessageType.C.EMERG`
-- `TM.MessageType.C.ALERT`
-- `TM.MessageType.C.CRIT`
-- `TM.MessageType.C.ERR`
-- `TM.MessageType.C.WARNING`
-- `TM.MessageType.C.NOTICE`
-- `TM.MessageType.C.INFO`
-- `TM.MessageType.C.DEBUG`
+- `TM.MessageLevel.C.EMERG`
+- `TM.MessageLevel.C.ALERT`
+- `TM.MessageLevel.C.CRIT`
+- `TM.MessageLevel.C.ERR`
+- `TM.MessageLevel.C.WARNING`
+- `TM.MessageLevel.C.NOTICE`
+- `TM.MessageLevel.C.INFO`
+- `TM.MessageLevel.C.DEBUG`
 
 This is the usual used semantic where 'EMERG' is greater (has a higher priority level) than 'DEBUG'.
 
 Example:
 
 ```
-    console.debug( iOrderableCompare( TM.MessageType.C.CRIT, TM.MessageType.C.INFO ));
+    console.debug( iOrderableCompare( TM.MessageLevel.C.CRIT, TM.MessageLevel.C.INFO ));
     // 1
 ```
 

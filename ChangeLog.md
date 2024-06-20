@@ -4,9 +4,9 @@
 
 ### 1.1.4-rc
 
-    Release date: 
+    Release date:
 
-    - 
+    - Taxonomy change: the 'type' becomes a 'level' to be consistent with syslog(3)
 
 ### 1.1.3
 

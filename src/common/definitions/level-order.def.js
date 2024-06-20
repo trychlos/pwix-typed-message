@@ -1,29 +1,29 @@
 /*
- * pwix:typed-message/src/common/definitions/type-order.def.js
+ * pwix:typed-message/src/common/definitions/level-order.def.js
  *
  * Only define here standard levels as defined in man 3 syslog.
- * Synonyms are managed in MessageType.
+ * Synonyms are managed in MessageLevel.
  */
 
 import _ from 'lodash';
 const assert = require( 'assert' ).strict;
 
-import { MessageType } from '../definitions/message-type.def.js';
+import { MessageLevel } from './message-level.def.js';
 
-export const TypeOrder = {
+export const LevelOrder = {
     K: [
-        MessageType.C.EMERG,
-        MessageType.C.ALERT,
-        MessageType.C.CRIT,
-        MessageType.C.ERR,
-        MessageType.C.WARNING,
-        MessageType.C.NOTICE,
-        MessageType.C.INFO,
-        MessageType.C.DEBUG
+        MessageLevel.C.EMERG,
+        MessageLevel.C.ALERT,
+        MessageLevel.C.CRIT,
+        MessageLevel.C.ERR,
+        MessageLevel.C.WARNING,
+        MessageLevel.C.NOTICE,
+        MessageLevel.C.INFO,
+        MessageLevel.C.DEBUG
     ],
 
     /**
-     * @returns {Array<String>} the list of ordered MessageType's
+     * @returns {Array<String>} the list of ordered MessageLevel's
      */
     Knowns(){
         return this.K;
@@ -45,15 +45,15 @@ export const TypeOrder = {
      * @returns {Integer} the index of the message type (or of one of its synonyms)  in the order array
      */
     index( type ){
-        const synonyms = MessageType.synonyms( type );
+        const synonyms = MessageLevel.synonyms( type );
         for( let s=0 ; s<synonyms.length ; ++s ){
             const syn = synonyms[s];
-            for( let i=0; i<TypeOrder.K.length ; ++i ){
-                if( TypeOrder.K[i] === syn ){
+            for( let i=0; i<LevelOrder.K.length ; ++i ){
+                if( LevelOrder.K[i] === syn ){
                     return i;
                 }
             }
         }
-        assert( false, 'message type "'+type+'" is unknowned' );
+        assert( false, 'message type \''+type+'\' is unknowned' );
     }
 };
