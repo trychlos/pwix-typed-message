@@ -140,7 +140,7 @@ Starting with v 0.3.0, and in accordance with advices from [the Meteor Guide](ht
 
 Instead we check npm versions of installed packages at runtime, on server startup, in development environment.
 
-Dependencies as of v 1.1.0:
+Dependencies as of v 1.2.0:
 ```
     'lodash': '^4.17.0',
     '@vestergaard-company/js-mixin': '^1.0.3'

@@ -2,9 +2,9 @@
 
 ## ChangeLog
 
-### 1.2.0-rc
+### 1.2.0
 
-    Release date:
+    Release date: 2024- 6-20
 
     - Taxonomy change: the 'type' becomes a 'level' to be consistent with syslog(3)
     - Remove (unused) internationalization

@@ -1,6 +1,6 @@
 Package.describe({
     name: 'pwix:typed-message',
-    version: '1.2.0-rc',
+    version: '1.2.0',
     summary: 'Bootstrap-based core package for SPA/Web applications',
     git: 'https://github.com/trychlos/pwix-typed-message.git',
     documentation: 'README.md'
