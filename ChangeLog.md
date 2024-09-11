@@ -6,7 +6,7 @@
 
     Release date: 
 
-    - 
+    - MessageLevel.defaultType() is renamed to defaultClientType()
 
 ### 1.2.0
 

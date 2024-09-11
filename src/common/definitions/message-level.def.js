@@ -76,7 +76,7 @@ _.merge( MessageLevel, {
      * @returns {String} the identifier of the default type
      *  Happens to be LOG, itself a synonym for INFO
      */
-    defaultType(){
+    defaultClientType(){
         return this.DefaultType;
     },
 
