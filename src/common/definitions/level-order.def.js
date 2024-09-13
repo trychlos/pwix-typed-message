@@ -33,6 +33,7 @@ export const LevelOrder = {
      * @param {String} a a message type
      * @param {String} b another message type
      * @returns {Integer} -1 if a < b, +1 if a > b, 0 else
+     *  a < b means that a.level is lesser than b.level, which also means that a.severity is greater than b.severity
      */
     compare( a, b ){
         const idx_a = this.index( a );

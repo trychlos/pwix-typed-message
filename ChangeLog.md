@@ -2,11 +2,12 @@
 
 ## ChangeLog
 
-### 1.2.1-rc
+### 1.3.0-rc
 
     Release date: 
 
-    - MessageLevel.defaultType() is renamed to defaultClientType()
+    - MessageLevel.defaultType() is renamed to defaultClientType() thus bumping minor candidate version number
+    - Fix iTypedMessageCompare() function
 
 ### 1.2.0
 

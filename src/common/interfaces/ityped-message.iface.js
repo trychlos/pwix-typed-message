@@ -50,22 +50,21 @@ export const ITypedMessage = DeclareMixin(( superclass ) => class extends superc
     }
 
     /**
-     *
-     * @param {ITypedMessage} a
-     * @param {ITypedMessage} b
-     * @returns -1 if a has a lower priority level than b
-     *           0 if a and b have the same priority level
-     *          +1 if a has a greater priority level than b
+     * @summary Compare the severity level of this ITypedMessage with another one
+     * @param {ITypedMessage} tm
+     * @returns -1 if this has a lower priority (aka severity) level than tm
+     *           0 if this and tm have the same priority level
+     *          +1 if this has a greater priority level than tm
      * Note:
-     *  We keep the usual semantic where 'EMERGENCY' is greater (has a higher priority level) than 'DEBUG'
-     *  so sort the levels in the reverse order of their index
+     *  We keep the usual semantic where 'EMERGENCY' is greater (has a higher priority level, is more severe) than 'DEBUG'
+     *  so sort the levels in the reverse order of their index.
+     *  We so have EMERG > ALERT > CRIT > ERR > WARNING > NOTICE > INFO > DEBUG.
      */
-    iTypedMessageCompare( a, b ){
-        assert( a instanceof ITypedMessage, 'expected an ITypedMessage instance' );
-        assert( b instanceof ITypedMessage, 'expected an ITypedMessage instance' );
-        const level_a = a.iTypedMessageLevel();
-        const level_b = b.iTypedMessageLevel();
-        return -1 * LevelOrder.compare( level_a, level_b );
+    iTypedMessageCompare( tm ){
+        assert( tm instanceof ITypedMessage, 'expected an ITypedMessage instance, got '+tm );
+        const level_this = this.iTypedMessageLevel();
+        const level_tm = tm.iTypedMessageLevel();
+        return -1 * LevelOrder.compare( level_this, level_tm );
     }
 
     /**
