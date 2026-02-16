@@ -10,6 +10,7 @@ This Meteor package is installable with the usual command:
 
 ```sh
     meteor add pwix:typed-message
+    meteor npm install lodash @vestergaard-company/js-mixin --save
 ```
 
 ## Usage
@@ -141,7 +142,8 @@ Starting with v 0.3.0, and in accordance with advices from [the Meteor Guide](ht
 Instead we check npm versions of installed packages at runtime, on server startup, in development environment.
 
 Dependencies as of v 1.3.0:
-```
+
+```js
     'lodash': '^4.17.0',
     '@vestergaard-company/js-mixin': '^1.0.3'
 ```

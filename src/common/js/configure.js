@@ -4,7 +4,10 @@
 
 import _ from 'lodash';
 
-TM._conf = {};
+import { ReactiveVar } from 'meteor/reactive-var';
+
+_conf = {};
+TM._conf = new ReactiveVar( _conf );
 
 TM._defaults = {
     verbosity: TM.C.Verbose.CONFIGURE
@@ -18,15 +21,28 @@ TM._defaults = {
  */
 TM.configure = function( o ){
     if( o && _.isObject( o )){
-        _.merge( TM._conf, TM._defaults, o );
-        // be verbose if asked for
-        if( TM._conf.verbosity & TM.C.Verbose.CONFIGURE ){
-            //console.log( 'pwix:typed-message configure() with', o, 'building', TM._conf );
-            console.log( 'pwix:typed-message configure() with', o );
+        // check that keys exist
+        let built_conf = {};
+        Object.keys( o ).forEach(( it ) => {
+            if( Object.keys( TM._defaults ).includes( it )){
+                built_conf[it] = o[it];
+            } else {
+                console.warn( 'pwix:typed-message configure() ignore unmanaged key \''+it+'\'' );
+            }
+        });
+        if( Object.keys( built_conf ).length ){
+            _conf = _.merge( TM._defaults, _conf, built_conf );
+            TM._conf.set( _conf );
+            // be verbose if asked for
+            if( _conf.verbosity & TM.C.Verbose.CONFIGURE ){
+                //console.log( 'pwix:typed-message configure() with', o, 'building', TM._conf );
+                console.log( 'pwix:typed-message configure() with', built_conf );
+            }
         }
     }
     // also acts as a getter
-    return TM._conf;
+    return TM._conf.get();
 }
 
-_.merge( TM._conf, TM._defaults );
+_conf = _.merge( {}, TM._defaults );
+TM._conf.set( _conf );
