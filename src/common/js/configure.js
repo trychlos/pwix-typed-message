@@ -4,7 +4,10 @@
 
 import _ from 'lodash';
 
+import { Logger } from 'meteor/pwix:logger';
 import { ReactiveVar } from 'meteor/reactive-var';
+
+const logger = Logger.get();
 
 _conf = {};
 TM._conf = new ReactiveVar( _conf );
@@ -27,17 +30,13 @@ TM.configure = function( o ){
             if( Object.keys( TM._defaults ).includes( it )){
                 built_conf[it] = o[it];
             } else {
-                console.warn( 'pwix:typed-message configure() ignore unmanaged key \''+it+'\'' );
+                logger.warn( 'configure() ignore unmanaged key \''+it+'\'' );
             }
         });
         if( Object.keys( built_conf ).length ){
             _conf = _.merge( TM._defaults, _conf, built_conf );
             TM._conf.set( _conf );
-            // be verbose if asked for
-            if( _conf.verbosity & TM.C.Verbose.CONFIGURE ){
-                //console.log( 'pwix:typed-message configure() with', o, 'building', TM._conf );
-                console.log( 'pwix:typed-message configure() with', built_conf );
-            }
+            logger.verbose({ verbosity: _conf.verbosity, against: TM.C.Verbose.CONFIGURE }, 'configure() with', built_conf );
         }
     }
     // also acts as a getter
